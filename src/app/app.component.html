@@ -1,29 +1,35 @@
 <div class="min-h-screen flex">
-  <!-- Sidebar -->
-  <app-sidebar [active]="this.sidebarActive" />
+    <!-- Sidebar -->
+    <app-sidebar [active]="this.sidebarActive" />
 
-  <!-- Main Content -->
-  <div [ngClass]="sidebarActive ?   'ml-64' : 'ml-12'" class="flex-grow  ml-64">
-    <!-- Header -->
-    <header class="bg-blue-600 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-2xl font-bold">B P</h1>
-        <nav>
-          <a href="#" class="px-3 py-2 rounded-md hover:bg-blue-700">Home</a>
-          <a href="#" class="px-3 py-2 rounded-md hover:bg-blue-700">About</a>
-          <a href="#" class="px-3 py-2 rounded-md hover:bg-blue-700">Contact</a>
-        </nav>
-      </div>
-    </header>
+    <!-- Main Content -->
+    <div [ngClass]="sidebarActive ? 'ml-64' : 'ml-12'" class="flex-grow">
+        <!-- Header -->
+        <header class="bg-blue-600 text-white p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-2xl font-bold">B P</h1>
+                <nav>
+                    <a href="#" class="px-3 py-2 rounded-md hover:bg-blue-700"
+                        >Home</a
+                    >
+                    <a href="#" class="px-3 py-2 rounded-md hover:bg-blue-700"
+                        >About</a
+                    >
+                    <a href="#" class="px-3 py-2 rounded-md hover:bg-blue-700"
+                        >Contact</a
+                    >
+                </nav>
+            </div>
+        </header>
 
-    <!--   Content -->
-    <router-outlet />
+        <!--   Content -->
+        <router-outlet />
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-4">
-      <div class="container mx-auto text-center">
-        <p>&copy; 2024 Budget Planner. All rights reserved.</p>
-      </div>
-    </footer>
-  </div>
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white p-4">
+            <div class="container mx-auto text-center">
+                <p>&copy; 2024 Budget Planner. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 </div>
