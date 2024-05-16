@@ -31,15 +31,15 @@ export class SidebarComponent {
         this.active = !this.active;
     }
     onDashboardClick() {
-        return this.router.navigate(['dashboard']);
+        return this.router.navigate(['budget-planner/dashboard']);
     }
     onProfileClick() {
-        return this.router.navigate(['profile']);
+        return this.router.navigate(['budget-planner/profile']);
     }
     onHistoryClick() {
-        return this.router.navigate(['history']);
+        return this.router.navigate(['budget-planner/history']);
     }
     onLogoutClick() {
-        return this.router.navigate(['logout']);
+        return this.router.navigate(['budget-planner/logout']);
     }
 }

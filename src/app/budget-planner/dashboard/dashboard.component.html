@@ -1,1 +1,85 @@
-<p>dashboard works!</p>
+<main class="container   p-4">
+    <!-- Overview Section -->
+    <section class="mb-6">
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">Budget Overview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-green-100 p-4 cursor-pointer rounded-lg text-center" (click)="goToIncomePage()">
+                    <h3 class="text-lg font-medium">Total Income</h3>
+                    <p class="text-2xl font-bold">{{totalIncome() | currency}}</p>
+                </div>
+                <div class="bg-red-100 p-4 cursor-pointer rounded-lg text-center" (click)="goToExpensesPage()">
+                    <h3 class="text-lg font-medium">Total Expenses</h3>
+                    <p class="text-2xl font-bold">{{totalExpense() | currency}}</p>
+                </div>
+
+                <div class=" bg-blue-100 p-4 cursor-pointer rounded-lg text-center" (click)="goTobalancePage()">
+                    <h3 class="text-lg font-medium">Balance</h3>
+                    <p class="text-2xl font-bold">{{balance() | currency}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Transactions Section -->
+    <section class="mb-6">
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">Last Month Transactions</h2>
+            <table class="w-full table-auto">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2 text-left">Date</th>
+                        <th class="px-4 py-2 text-left">Description</th>
+                        <th class="px-4 py-2 text-right">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-t" *ngFor="let raw of history;">
+                        <td class="px-4 py-2">{{raw.date}}</td>
+                        <td class="px-4 py-2">{{raw.des}}</td>
+                        <td [ngClass]="raw.type === 1 ? 'text-green-500' : 'text-red-500' "
+                            class="px-4 py-2 text-right ">
+                            @if(raw.type === 1)
+                            { +}
+                            @else
+                            { - }
+
+                            {{raw.amount | currency}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Budget Breakdown Section -->
+    <section class="mb-6">
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">Budget Breakdown</h2>
+            <!-- Placeholder for Charts or Additional Details -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h3 class="text-lg font-medium">Income Sources</h3>
+                    <ul class="list-disc ml-4 ">
+                        <li *ngFor="let raw of sources;">{{raw.des | titlecase }}:
+                            <span class="text-green-500">
+                                +
+
+                                {{raw.amount | currency}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <h3 class="text-lg font-medium">Expense Categories</h3>
+                    <ul class="list-disc ml-4">
+                        <li *ngFor="let raw of expense;">{{raw.des | titlecase }}:
+                            <span class="text-red-500">
+                                -
+                                {{raw.amount | currency}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
